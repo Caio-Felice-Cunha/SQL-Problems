@@ -1,14 +1,17 @@
-## Problem: https://github.com/Caio-Felice-Cunha/SQl_Problems/blob/main/Datalemur%20-%20Histogram%20of%20Tweets/Problem.md
-## My Solution
+-- Problem: ../Datalemur%20-%20Histogram%20of%20Tweets/Problem.md
+-- My Solution
+-- Dialect: PostgreSQL.
+-- tweet_date is a timestamp, so EXTRACT(YEAR ...) keeps tweets posted after
+-- midnight on Dec 31 2022 that a BETWEEN '2022-01-01' AND '2022-12-31' range drops.
 
 WITH TweetsCountCTE AS(
-  SELECT 
+  SELECT
     user_id,
     COUNT(tweet_id) AS NumberTweets
-  FROM 
+  FROM
     tweets
   WHERE
-    tweet_date BETWEEN '2022-01-01' AND '2022-12-31'
+    EXTRACT(YEAR FROM tweet_date) = 2022
   GROUP BY
     user_id)
 SELECT
