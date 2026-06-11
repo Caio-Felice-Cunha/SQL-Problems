@@ -31,7 +31,7 @@ The following tables contain company data:
 C1 Monika 1 2 1 2
 C2 Samantha 1 1 2 2
 ````
-##Explanation
+## Explanation
 
 In company C1, the only lead manager is LM1. There are two senior managers, SM1 and SM2, under LM1. There is one manager, M1, under senior manager SM1. There are two employees, E1 and E2, under manager M1.<br>
 
