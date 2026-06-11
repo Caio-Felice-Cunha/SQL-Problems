@@ -1,0 +1,14 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.idea/
+.vscode/
+*.swp
+
+# Local SQL scratch / database files
+*.db
+*.sqlite
+*.sqlite3
+scratch.sql
