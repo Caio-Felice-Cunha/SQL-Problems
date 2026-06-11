@@ -1,5 +1,6 @@
-## Problem: https://github.com/Caio-Felice-Cunha/SQl_Problems/blob/main/StrataScratch%20-%20Popularity%20Percentage/Problem.md
--- My Solution:
+-- Problem: ../StrataScratch%20-%20Popularity%20Percentage/Problem.md
+-- My Solution
+-- Dialect: PostgreSQL (StrataScratch code_type=3).
 
 WITH PairsUniqueCTE AS (
     SELECT 
@@ -23,10 +24,10 @@ CountFriendsCTE AS (
     GROUP BY 
         UserId
 )
-SELECT 
+SELECT
   PairsUniqueCTE.UserId,
-  (CountFriendsCTE.TotalFriends 
-    / (SELECT COUNT(DISTINCT UserId) FROM PairsUniqueCTE)) * 100 AS popularity_percent
+  100.0 * CountFriendsCTE.TotalFriends
+    / (SELECT COUNT(DISTINCT UserId) FROM PairsUniqueCTE) AS popularity_percent
 FROM 
     PairsUniqueCTE
         LEFT JOIN 

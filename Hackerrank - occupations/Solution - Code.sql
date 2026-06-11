@@ -1,5 +1,6 @@
-## Problem: https://github.com/Caio-Felice-Cunha/SQl_Problems/blob/main/Hackerrank%20-%20occupations/Problem.md
-## My Solution
+-- Problem: ../Hackerrank%20-%20occupations/Problem.md
+-- My Solution
+-- Dialect: MySQL (uses if()).
 
 SELECT
     MIN(
@@ -11,13 +12,13 @@ SELECT
     MIN(
         if(occupation = 'Actor', name, null)) AS Actor
 FROM
-    (SELECT 
+    (SELECT
         name,
         occupation,
-        ROW_NUMBER() 
+        ROW_NUMBER()
             OVER (
-                PARTITION BY occupation 
-                ORDER BY name) as NumberRow 
-     FROM 
-        occupations) AS Order 
+                PARTITION BY occupation
+                ORDER BY name) as NumberRow
+     FROM
+        occupations) AS Ranked
 GROUP BY NumberRow;

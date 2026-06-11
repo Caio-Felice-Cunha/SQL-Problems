@@ -12,18 +12,13 @@ Employees table:<br>
 ![image](https://user-images.githubusercontent.com/111542025/236263900-55ffd9c6-5a4f-4189-8e94-5ba688cd4b46.png)
 
 # My Solution
+Dialect: MySQL.
+
+The task asks for the error "rounded up to the next integer", which is CEIL applied to the difference of the two averages, not each average rounded separately and then subtracted. Rounding each term first can produce a different result (for example CEIL(33.33 - 0.67) = 33, but ROUND(33.33) - ROUND(0.67) = 32). The empty string for REPLACE uses single quotes so it works regardless of ANSI_QUOTES mode.
+
 ````sql
-SELECT 
-    (ROUND(
-        AVG(
-            ROUND(Salary,0)),0)) 
-            
-            -
-            
-                (ROUND(
-                    AVG(
-                        REPLACE(
-                            ROUND(Salary,0),'0',"")),0)) AS ActualAvg
-FROM 
+SELECT
+    CEIL(AVG(Salary) - AVG(REPLACE(Salary, '0', ''))) AS error
+FROM
     EMPLOYEES;
 ````

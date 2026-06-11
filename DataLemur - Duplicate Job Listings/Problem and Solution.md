@@ -15,20 +15,23 @@ Because job IDs 945 and 164 are at the same company (345), and the jobs have the
 The dataset you are querying against may have different input & output - this is just an example!
 
 # My Solution
+Dialect: PostgreSQL.
+
+A duplicate is two jobs at the same company sharing the same title and description, so the grouping key must be (company_id, title, description), not company_id alone. Grouping only by company_id would flag any company with two or more different postings.
+
 ````sql
 WITH DuplicateCTE AS (
-  SELECT 
-    company_id,
-    COUNT(CONCAT(title, ' ', description)) AS cnt
-  FROM 
+  SELECT
+    company_id
+  FROM
     job_listings
   GROUP BY
-    company_id
+    company_id, title, description
+  HAVING
+    COUNT(*) > 1
 )
 SELECT
   COUNT(DISTINCT company_id) AS co_w_duplicate_jobs
 FROM
-  DuplicateCTE
-WHERE
-  cnt >= 2;
+  DuplicateCTE;
 ````
