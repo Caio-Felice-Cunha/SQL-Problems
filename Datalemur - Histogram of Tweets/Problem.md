@@ -12,4 +12,4 @@ Assume you are given the table below containing tweet data. Write a query to obt
 ## Example Output:
 ![image](https://user-images.githubusercontent.com/111542025/233390466-97f754bc-95a8-4677-816c-e092c0841b4a.png)
 
-# [My Solution](https://github.com/Caio-Felice-Cunha/SQl_Problems/blob/main/Datalemur%20-%20Histogram%20of%20Tweets/Solution%20-%20Code.sql)
+# [My Solution](./Solution%20-%20Code.sql)

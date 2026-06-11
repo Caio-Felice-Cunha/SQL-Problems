@@ -12,4 +12,4 @@ Note: Print NULL when there are no more names corresponding to an occupation.
 ## Sample Output
 ![image](https://user-images.githubusercontent.com/111542025/233391901-79c9e1f0-7943-4446-8ecf-4540fa024837.png)
 
-# [My Solution](https://github.com/Caio-Felice-Cunha/SQl_Problems/blob/main/Hackerrank%20-%20occupations/Solution%20-%20Code.sql)
+# [My Solution](./Solution%20-%20Code.sql)
